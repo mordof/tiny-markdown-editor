@@ -77,6 +77,13 @@ const DefaultCommands: Record<string, CommandDefinition> = {
     title: "Level 2 heading",
     hotkey: "Mod-Shift-2",
   },
+  subscript: {
+    name: 'sub',
+    action: 'subscript',
+    innerHTML: 'x<sub>2</sub>',
+    title: 'Subscript',
+    hotkey: 'Mod-Shift--',
+  },
   ul: {
     name: "ul",
     action: "ul",

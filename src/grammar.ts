@@ -88,6 +88,10 @@ export const lineGrammar: Record<string, GrammarRule> = {
     regexp: /^( {0,3}######\s)(.*?)((?:\s+#+\s*)?)$/, 
     replacement: '<span class="TMMark TMMark_TMH6">$1</span>$$2<span class="TMMark TMMark_TMH6">$3</span>'
   },
+  TMSUB: { 
+    regexp: /^( {0,3}-#\s)(.*?)((?:\s+-#\s*)?)$/, 
+    replacement: '<sub class="TMMark TMMark_TMSUB">$1$$2$3</sub>'
+  },
   TMBlockquote: { 
     regexp: /^( {0,3}>[ ]?)(.*)$/, 
     replacement: '<span class="TMMark TMMark_TMBlockquote">$1</span>$$2'
@@ -340,6 +344,12 @@ export const commands: Record<string, Command> = {
     className: 'TMH6', 
     set: {pattern: /^( {0,3}(?:(?:#+|[0-9]{1,9}[).]|[>\-*+])\s+)?)(.*)$/, replacement: '###### $2'}, 
     unset: {pattern: /^( {0,3}######\s+)(.*?)((?:\s+#+\s*)?)$/, replacement: '$2'}
+  },
+  subscript: {
+    type: 'line', 
+    className: 'TMSUB', 
+    set: {pattern: /^( {0,3}(?:(?:-#|[0-9]{1,9}[).]|[>\-*+])\s+)?)(.*)$/, replacement: '-# $2'}, 
+    unset: {pattern: /^( {0,3}-#\s+)(.*?)((?:\s+-#\s*)?)$/, replacement: '$2'}
   },
   ul: {
     type: 'line', 
