@@ -2,13 +2,12 @@
   "name": "tiny-markdown-editor",
   "version": "0.2.15",
   "description": "TinyMDE: A tiny, ultra low dependency, embeddable HTML/JavaScript Markdown editor.",
-  "main": "lib/index.js",
   "files": [
     "dist/*",
+    "src/*",
     "lib/**/*.js",
     "lib/**/*.d.ts"
   ],
-  "types": "lib/index.d.ts",
   "keywords": [
     "embeddable",
     "markdown",
