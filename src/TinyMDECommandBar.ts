@@ -57,6 +57,13 @@ const DefaultCommands: Record<string, CommandDefinition> = {
     title: "Strikethrough",
     hotkey: "Mod2-Shift-5",
   },
+  underline: {
+    name: "underline",
+    action: "underline",
+    innerHTML: "<u>U</u>",
+    title: "Underline",
+    hotkey: "Mod-U",
+  },
   code: {
     name: "code",
     action: "code",
@@ -182,6 +189,7 @@ export class CommandBar {
         "bold",
         "italic",
         "strikethrough",
+        "underline",
         "|",
         "code",
         "|",

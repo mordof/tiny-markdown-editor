@@ -90,7 +90,7 @@ export const lineGrammar: Record<string, GrammarRule> = {
   },
   TMSUB: { 
     regexp: /^( {0,3}-#\s)(.*?)((?:\s+-#\s*)?)$/, 
-    replacement: '<sub class="TMMark TMMark_TMSUB">$1$$2$3</sub>'
+    replacement: '<sub class="TMMark TMMark_TMSUB">$1</sub><sub>$$2</sub><sub class="TMMark TMMark_TMSUB">$3</sub>'
   },
   TMBlockquote: { 
     regexp: /^( {0,3}>[ ]?)(.*)$/, 
@@ -289,7 +289,7 @@ export const commands: Record<string, Command> = {
     type: 'inline', 
     className: 'TMStrong', 
     set: {pre: '**', post: '**'}, 
-    unset: {prePattern: /(?:\*\*|__)$/, postPattern: /^(?:\*\*|__)/}
+    unset: {prePattern: /\*\*$/, postPattern: /^\*\*/}
   }, 
   italic: {
     type: 'inline', 
@@ -297,18 +297,24 @@ export const commands: Record<string, Command> = {
     set: {pre: '*', post: '*'}, 
     unset: {prePattern: /(?:\*|_)$/, postPattern: /^(?:\*|_)/}
   },
-  code: {
-    type: 'inline', 
-    className: 'TMCode', 
-    set: {pre: '`', post: '`'}, 
-    unset: {prePattern: /`+$/, postPattern: /^`+/} // FIXME this doesn't ensure balanced backticks right now
-  }, 
   strikethrough: {
     type: 'inline', 
     className: 'TMStrikethrough', 
     set: {pre: '~~', post: '~~'}, 
     unset: {prePattern:/~~$/, postPattern: /^~~/ }
   },
+  underline: {
+    type: 'inline', 
+    className: 'TMUnderline', 
+    set: {pre: '__', post: '__'}, 
+    unset: {prePattern: /__$/, postPattern: /^__/}
+  },
+  code: {
+    type: 'inline', 
+    className: 'TMCode', 
+    set: {pre: '`', post: '`'}, 
+    unset: {prePattern: /`+$/, postPattern: /^`+/} // FIXME this doesn't ensure balanced backticks right now
+  }, 
   h1: {
     type: 'line', 
     className: 'TMH1', 

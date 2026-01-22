@@ -829,8 +829,44 @@ export class Editor {
         }
       }
 
+      // Check for underline delimiter
+      let cap = /^__/.exec(string);
+      if (cap) {
+        let consumed = false;
+        let stackPointer = stack.length - 1;
+        while (!consumed && stackPointer >= 0) {
+          if (stack[stackPointer].delimiter === "_") {
+            while (stackPointer < stack.length - 1) {
+              const entry = stack.pop()!;
+              processed = `${entry.output}${entry.delimString.substr(0, entry.count)}${processed}`;
+            }
+
+            processed = `<span class="TMMark">__</span><u class="TMUnderline">${processed}</u><span class="TMMark">__</span>`;
+            let entry = stack.pop()!;
+            processed = `${entry.output}${processed}`;
+            consumed = true;
+          } else {
+            stackPointer--;
+          }
+        }
+
+        if (!consumed) {
+          stack.push({
+            delimiter: "_",
+            delimString: "__",
+            count: 2,
+            output: processed,
+          });
+          processed = "";
+        }
+
+        offset += cap[0].length;
+        string = string.substr(cap[0].length);
+        continue outer;
+      }
+
       // Check for em / strong delimiters
-      let cap = /(^\*+)|(^_+)/.exec(string);
+      cap = /(^\*+)|(^_)/.exec(string);
       if (cap) {
         let delimCount = cap[0].length;
         const delimString = cap[0];
