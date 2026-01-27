@@ -1,0 +1,150 @@
+.TinyMDE {
+  background-color: #181a1b;
+  color: #e0e0e0;
+  font-size: 16px;
+  line-height: 24px;
+  outline: none;
+  padding: 5px;
+  height: 100%;
+}
+
+.TMBlankLine {
+  height:24px;
+}
+
+.TMH1, .TMSetextH1 {
+  font-size: 22px;
+  line-height: 32px;
+  font-weight: bold;
+  margin-bottom: 8px;
+  color: #ffb380;
+}
+
+.TMSetextH1 {
+  margin-bottom: 0px;
+}
+
+.TMSetextH1Marker {
+  margin-bottom: 8px;
+}
+
+.TMH2, .TMSetextH2 {
+  font-size: 20px;
+  line-height: 28px;
+  font-weight: bold;
+  margin-bottom: 4px;
+  color: #ffd580;
+}
+
+.TMMark_TMCode {
+  font-family: monospace;
+  font-size: .9em;
+  color: #b0b0b0;
+}
+
+.TMFencedCodeBacktick, .TMFencedCodeTilde, .TMIndentedCode, .TMCode {
+  font-family: monospace;
+  font-size: .9em;
+  background-color: #23272e;
+  color: #e0e0e0;
+}
+
+.TMCodeFenceBacktickOpen, .TMCodeFenceTildeOpen {
+  border-bottom: 1px solid #444;
+  font-family: monospace;
+  font-size: .9em;
+}
+
+.TMCodeFenceBacktickClose, .TMCodeFenceTildeClose {
+  border-top: 1px solid #444;
+  font-family: monospace;
+  font-size: .9em;
+}
+
+.TMInfoString {
+  color: #7abaff;
+}
+
+.TMCode {
+  border: 1px solid #444;
+  border-radius: 2px;
+}
+
+.TMBlockquote {
+  font-style: italic;
+  border-left: 2px solid #444;
+  padding-left: 10px;
+  margin-left: 10px;
+  color: #b0b0b0;
+}
+
+.TMMark {
+  color: #888;
+}
+
+.TMMark_TMH1, .TMMark_TMH2 {
+  color: #ffb380;
+}
+
+.TMMark_TMUL, .TMMark_TMOL {
+  color: #ffd580;
+}
+
+.TMImage {
+  text-decoration: underline;
+  text-decoration-color: #40ffb0;
+}
+
+
+.TMLink {
+  text-decoration: underline;
+  text-decoration-color: #7abaff;
+}
+
+.TMLinkLabel {
+  text-decoration: underline;
+  font-family: monospace;
+}
+
+.TMLinkLabel_Definition, .TMLinkLabel_Valid {
+  color: #40ffb0;
+}
+
+.TMLinkLabel_Invalid {
+  color: #ff8080;
+}
+
+.TMLinkTitle {
+  font-style: italic;
+}
+
+.TMLinkDestination, .TMAutolink {
+  text-decoration: underline;
+  color: #7abaff;
+}
+
+
+.TMHR {
+  position: relative;
+}
+
+.TMHR:before {
+  content: '';
+  position: absolute;
+  bottom: 50%;
+  left: 40%;
+  border-bottom: 2px solid #444;
+  width: 20%;
+  z-index: 0;
+}
+
+.TMHTML, .TMHTMLBlock {
+  font-family: monospace;
+  font-size: .9em;
+  color: #b380ff;
+}
+
+.TMHTMLBlock {
+  color: #7a5fff;
+}
+

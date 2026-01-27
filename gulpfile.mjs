@@ -112,6 +112,16 @@ const css = () =>
     .pipe(rename("tiny-mde.min.css"))
     .pipe(gulp.dest("./dist"));
 
+const darkcss = () =>
+  gulp
+    .src("./src/css/dark_index.css")
+    .pipe(postcss([postcss_import(), autoprefixer()]))
+    .pipe(rename("tiny-dark-mde.css"))
+    .pipe(gulp.dest("./dist"))
+    .pipe(postcss([cssnano()]))
+    .pipe(rename("tiny-dark-mde.min.css"))
+    .pipe(gulp.dest("./dist"));
+
 const watch = () => {
   gulp.watch("./src/**/*.svg", svg);
   gulp.watch("./src/**/*.ts", jsMax);
@@ -227,9 +237,9 @@ const gitPushTag = async () => {
 };
 
 
-const build = gulp.series(clean, transpile, svg, js, css, html);
+const build = gulp.series(clean, transpile, svg, js, css, darkcss, html);
 
-const dev = gulp.series(clean, svg, jsMax, css, html, watch);
+const dev = gulp.series(clean, svg, jsMax, css, darkcss, html, watch);
 
 
 const release = gulp.series(
